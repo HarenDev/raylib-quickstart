@@ -51,25 +51,32 @@ function check_raylib_cpp()
                 progress = download_progress,
                 headers = { "From: Premake", "Referer: Premake" }
             })
-    end
+        end
      
         print("Unzipping to " ..  os.getcwd())
         zip.extract("raylib-cpp-master.zip", os.getcwd())
         os.remove("raylib-cpp-master.zip")
-        
+
         os.chdir("../")
         
-        os.remove("raylib-cpp-temp/raylib-cpp-master/include/CMakeLists.txt")
-        local sourceDir = "raylib-cpp-temp/raylib-cpp-master/include/"
-        print("Copying raylib-cpp files to raylib-cpp directory")
-        
+        -- Fix Windows path handling
         if os.host() == "windows" then
-            os.execute('xcopy "' .. sourceDir .. '\\*" ".\\raylib-cpp" /E /I /Y')
+            local sourcePath = os.getcwd() .. "\\raylib-cpp-temp\\raylib-cpp-master\\include"
+            local destPath = os.getcwd() .. "\\raylib-cpp"
+            print("Copying raylib-cpp files to raylib-cpp directory")
+            
+            os.execute('robocopy "' .. sourcePath .. '" "' .. destPath .. '" /E')
+            
+            print("Cleaning up temporary directory")
+            os.execute('rd /S /Q "' .. os.getcwd() .. '\\raylib-cpp-temp"')
         else
+            local sourceDir = "raylib-cpp-temp/raylib-cpp-master/include/"
+            print("Copying raylib-cpp files to raylib-cpp directory")
             os.execute('cp -R "' .. sourceDir .. '." "./raylib-cpp/"')
+            
+            print("Cleaning up temporary directory")
+            os.execute('rm -rf "' .. os.getcwd() .. '/raylib-cpp-temp"')
         end
-        
-        os.rmdir("raylib-cpp-temp")
     end
     
     os.chdir("../build")
