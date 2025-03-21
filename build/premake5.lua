@@ -42,29 +42,24 @@ function check_raylib_cpp()
     os.chdir("../include/")
     if(os.isdir("raylib-cpp") == false) then
         os.mkdir("raylib-cpp")
-    end
-    
-    -- Create temp dir for download if needed
-    if(not os.isdir("raylib-cpp-temp")) then
         os.mkdir("raylib-cpp-temp")
         os.chdir("raylib-cpp-temp")
-        
+
         if(not os.isfile("raylib-cpp-master.zip")) then
             print("Raylib-cpp not found, downloading from github")
             local result_str, response_code = http.download("https://github.com/RobLoach/raylib-cpp/archive/refs/heads/master.zip", "raylib-cpp-master.zip", {
                 progress = download_progress,
                 headers = { "From: Premake", "Referer: Premake" }
             })
-        end
-        
+    end
+     
         print("Unzipping to " ..  os.getcwd())
         zip.extract("raylib-cpp-master.zip", os.getcwd())
         os.remove("raylib-cpp-master.zip")
         
-        -- Navigate back to include directory
         os.chdir("../")
         
-        -- Copy files to raylib-cpp directory instead of include root
+        os.remove("raylib-cpp-temp/raylib-cpp-master/include/CMakeLists.txt")
         local sourceDir = "raylib-cpp-temp/raylib-cpp-master/include/"
         print("Copying raylib-cpp files to raylib-cpp directory")
         
@@ -74,7 +69,6 @@ function check_raylib_cpp()
             os.execute('cp -R "' .. sourceDir .. '." "./raylib-cpp/"')
         end
         
-        -- Clean up temp directory
         os.rmdir("raylib-cpp-temp")
     end
     
