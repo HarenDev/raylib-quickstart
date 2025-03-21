@@ -7,7 +7,7 @@ by Jeffery Myers is marked with CC0 1.0. To view a copy of this license, visit h
 
 */
 
-#include "raylib.h"
+#include "raylib-cpp/raylib-cpp.hpp"
 
 #include "resource_dir.h"	// utility header for SearchAndSetResourceDir
 
