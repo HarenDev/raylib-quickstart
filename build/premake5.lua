@@ -23,8 +23,8 @@ end
 
 function check_raylib()
     os.chdir("external")
-    if(os.isdir("raylib-master") == false) then
-        if(not os.isfile("raylib-master.zip")) then
+    if(os.isdir("raylib-5.5") == false) then
+        if(not os.isfile("raylib-5.5.zip")) then
             print("Raylib not found, downloading from github")
             local result_str, response_code = http.download("https://github.com/raysan5/raylib/archive/refs/tags/5.5.zip", "raylib-master.zip", {
                 progress = download_progress,
@@ -45,23 +45,23 @@ function check_raylib_cpp()
         os.mkdir("raylib-cpp-temp")
         os.chdir("raylib-cpp-temp")
 
-        if(not os.isfile("raylib-cpp-master.zip")) then
+        if(not os.isfile("raylib-cpp-5.5.0.zip")) then
             print("Raylib-cpp not found, downloading from github")
-            local result_str, response_code = http.download("https://github.com/RobLoach/raylib-cpp/archive/refs/tags/v5.5.0.zip", "raylib-cpp-master.zip", {
+            local result_str, response_code = http.download("https://github.com/RobLoach/raylib-cpp/archive/refs/tags/v5.5.0.zip", "raylib-cpp-5.5.0.zip", {
                 progress = download_progress,
                 headers = { "From: Premake", "Referer: Premake" }
             })
         end
      
         print("Unzipping to " ..  os.getcwd())
-        zip.extract("raylib-cpp-master.zip", os.getcwd())
-        os.remove("raylib-cpp-master.zip")
+        zip.extract("raylib-cpp-5.5.0.zip", os.getcwd())
+        os.remove("raylib-cpp-5.5.0.zip")
 
         os.chdir("../")
         
         -- Fix Windows path handling
         if os.host() == "windows" then
-            local sourcePath = os.getcwd() .. "\\raylib-cpp-temp\\raylib-cpp-master\\include"
+            local sourcePath = os.getcwd() .. "\\raylib-cpp-temp\\raylib-cpp-5.5.0\\include"
             local destPath = os.getcwd() .. "\\raylib-cpp"
             print("Copying raylib-cpp files to raylib-cpp directory")
             
@@ -70,7 +70,7 @@ function check_raylib_cpp()
             print("Cleaning up temporary directory")
             os.execute('rd /S /Q "' .. os.getcwd() .. '\\raylib-cpp-temp"')
         else
-            local sourceDir = "raylib-cpp-temp/raylib-cpp-master/include/"
+            local sourceDir = "raylib-cpp-temp/raylib-cpp-5.5.0/include/"
             print("Copying raylib-cpp files to raylib-cpp directory")
             os.execute('cp -R "' .. sourceDir .. '." "./raylib-cpp/"')
             
@@ -79,7 +79,9 @@ function check_raylib_cpp()
         end
     end
     
-    os.chdir("../build")
+    os.chdir("raylib-cpp");
+    os.remove("CMakeLists.txt");
+    os.chdir("../../build")
 end
 
 function build_externals()
@@ -133,7 +135,7 @@ end
 
 -- if you don't want to download raylib, then set this to false, and set the raylib dir to where you want raylib to be pulled from, must be full sources.
 downloadRaylib = true
-raylib_dir = "external/raylib-master"
+raylib_dir = "external/raylib-5.5"
 
 workspaceName = 'MyGame'
 baseName = path.getbasename(path.getdirectory(os.getcwd()));
