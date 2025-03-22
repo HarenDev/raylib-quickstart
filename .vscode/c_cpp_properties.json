@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/build/external/raylib-master/src/**",
+                "${workspaceFolder}/build/external/raylib-5.5/src/**",
                 "${workspaceFolder}/include/**",
                 "${workspaceFolder}/src/**"
             ],
@@ -21,7 +21,7 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/build/external/raylib-master/src/**",
+                "${workspaceFolder}/build/external/raylib-5.5/src/**",
                 "${workspaceFolder}/include/**",
                 "${workspaceFolder}/src/**"
             ],
@@ -43,7 +43,7 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/build/external/raylib-master/src/**",
+                "${workspaceFolder}/build/external/raylib-5.5/src/**",
                 "${workspaceFolder}/include/**",
                 "${workspaceFolder}/src/**"
             ],
@@ -58,7 +58,6 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64"
-
         }
     ],
     "version": 4
