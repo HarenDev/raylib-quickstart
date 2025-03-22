@@ -10,12 +10,19 @@
             "windows": {
                 "command": "mingw32-make.exe",
                 "args":[
+                    "-j4",
                     "CXXFLAGS=-Wno-shadow -w"
                 ],
             },
             "osx": {
                 "args": [
+                    "-j4",
                     "config=debug_arm64"
+                ],
+            },
+            "linux": {
+                "args": [
+                    "-j4",
                 ],
             },
             "group": {
@@ -35,16 +42,19 @@
                 "command": "mingw32-make.exe",
                 "args": [
                     "config=release_x64",
+                    "-j4",
                     "CXXFLAGS=-Wno-shadow -w"
                 ],
             },
             "linux": {
                 "args": [
+                    "-j4",
                     "config=release_x64"
                 ],
             },
             "osx": {
                 "args": [
+                    "-j4",
                     "config=release_arm64"
                 ],
             },
