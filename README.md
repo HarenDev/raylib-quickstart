@@ -25,7 +25,7 @@ There are two compiler toolchains available for windows, MinGW-W64 (a free compi
 ## Using MinGW-W64
 * Double click the `build-MinGW-W64.bat` file
 * CD into the folder in your terminal
-* run `make`
+* run `make CXXFLAGS=-Wno-shadow -w -j4` or `mingw32-make CXXFLAGS=-Wno-shadow -w -j4`
 * You are good to go
 
 ### Note on MinGW-64 versions
@@ -52,14 +52,14 @@ DO NOT INSTALL ANOTHER MinGW-W64 from another source such as msys2, you don't ne
 * CD into the build folder
 * run `./premake5 gmake2`
 * CD back to the root
-* run `make`
+* run `make -j4`
 * you are good to go
 
 # MacOS Users
 * CD into the build folder
 * run `./premake5.osx gmake2`
 * CD back to the root
-* run `make`
+* run `make -j4`
 * you are good to go
 
 # Output files

@@ -401,3 +401,5 @@ raylib-5.5
 raylib-cpp
 Makefile
 /*.sln
+
+.DS_Store
