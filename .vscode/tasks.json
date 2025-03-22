@@ -9,6 +9,9 @@
             "command": "make",
             "windows": {
                 "command": "mingw32-make.exe",
+                "args":[
+                    "CXXFLAGS=-Wno-shadow -w"
+                ],
             },
             "osx": {
                 "args": [
@@ -31,7 +34,8 @@
             "windows": {
                 "command": "mingw32-make.exe",
                 "args": [
-                    "config=release_x64"
+                    "config=release_x64",
+                    "CXXFLAGS=-Wno-shadow -w"
                 ],
             },
             "linux": {
