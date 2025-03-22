@@ -25,7 +25,7 @@ There are two compiler toolchains available for windows, MinGW-W64 (a free compi
 ## Using MinGW-W64
 * Double click the `build-MinGW-W64.bat` file
 * CD into the folder in your terminal
-* run `make`
+* run `make CXXFLAGS=-Wno-shadow -w -j4` or `mingw32-make CXXFLAGS=-Wno-shadow -w -j4`
 * You are good to go
 
 ### Note on MinGW-64 versions
