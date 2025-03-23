@@ -1,5 +1,5 @@
 # Raylib-Quickstart
-A simple cross platform template for setting up a project with the bleeding edge raylib code.
+A simple cross platform template for setting up a project with the bleeding edge Raylib + Raylib-cpp code.
 Works with C or C++.
 
 ## Supported Platforms
