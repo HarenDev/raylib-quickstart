@@ -14,7 +14,7 @@ by Jeffery Myers is marked with CC0 1.0. To view a copy of this license, visit h
 int main ()
 {
 	// Create the window and OpenGL context & tell the window to use vsync and work on high DPI displays
-	raylib::Window window(1024, 724, "Hello Raylib", FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
+	raylib::Window window(1280, 800, "Hello Raylib", FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
 
 	// Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
 	SearchAndSetResourceDir("resources");

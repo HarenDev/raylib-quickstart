@@ -1,5 +1,5 @@
 # Raylib-Quickstart
-A simple cross platform template for setting up a project with the bleeding edge raylib code.
+A simple cross platform template for setting up a project with the bleeding edge Raylib + Raylib-cpp code.
 Works with C or C++.
 
 ## Supported Platforms
@@ -59,7 +59,7 @@ DO NOT INSTALL ANOTHER MinGW-W64 from another source such as msys2, you don't ne
 You may get missing xorg depedency errors when trying to build the project.
 You just need to obtain the relevant xorg development packages for your relevant system.
 
-Ubuntu:
+Debian systems (such as Ubuntu):
 * run `apt-get install xorg-dev`
 * you should be good to go
 
