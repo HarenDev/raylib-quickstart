@@ -36,7 +36,7 @@ or the version installed with the raylib installer
 #### If you have installed raylib from the installer
 Make sure you have added the path
 
-`C:\raylib\w64devkit\bin`
+`C:\w64devkit\bin`
 
 To your path environment variable so that the compiler that came with raylib can be found.
 
