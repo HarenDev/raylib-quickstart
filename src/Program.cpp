@@ -31,8 +31,3 @@ void Program::Unload(){
     //modify or replace this code with whatever you want :)
     UnloadTexture(wabbit);
 }
-
-Program::~Program(){
-    //modify or replace this code with whatever you want :)
-    Unload();
-}

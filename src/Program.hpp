@@ -5,7 +5,6 @@
 class Program {
     public:
     Program();
-    ~Program();
 
     void Update();
     void Draw();

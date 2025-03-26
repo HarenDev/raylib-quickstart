@@ -41,6 +41,9 @@ int main ()
 		// end the frame and get ready for the next one  (display frame, poll input, etc...)
 		EndDrawing();
 	}
+	//Cleanup any unneded resources
+	program.Unload();
+
 	// destroy the window and cleanup the OpenGL context
 	CloseWindow();
 	return 0;
