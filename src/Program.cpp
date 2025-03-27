@@ -29,5 +29,10 @@ void Program::CheckInput(){
 
 void Program::Unload(){
     //modify or replace this code with whatever you want :)
-    UnloadTexture(wabbit);
+
+    //Small Tip: Raylib seems to tend to unload certain things when the program is being closed (program variable goes out of scope due to
+    // the window closing), so force unloading may or may not lead to exceptions since it'll already have 
+    // unloaded what your trying to unload, therefore it might be more ideal to unload specifically when you need to remove certain assets
+    // while the program is running
+    wabbit.Unload();
 }
