@@ -211,6 +211,11 @@ if (downloadRaylib) then
     
         includedirs { "../src" }
         includedirs { "../include" }
+        
+        local src_dirs = os.matchdirs("../src/**")
+        includedirs(src_dirs)
+        local include_dirs = os.matchdirs("../include/**")
+        includedirs(include_dirs)
 
         links {"raylib"}
 
