@@ -1,6 +1,6 @@
 #pragma once
 
-#include "raylib-cpp/raylib-cpp.hpp"
+#include "raylib-cpp.hpp"
 
 class Program {
     public:
